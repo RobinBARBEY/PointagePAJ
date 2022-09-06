@@ -1,4 +1,4 @@
-import mysql.connector
+import mariadb
 from dataclasses import dataclass
 from dotenv import load_dotenv
 import os
@@ -14,7 +14,7 @@ class database:
     pointages: list
     password: str = os.getenv("POINTAGE_PASSWD")
 
-    db = mysql.connector.connect(
+    db = mariadb.connect(
         host=os.getenv("POINTAGE_HOST"),
         user=os.getenv("POINTAGE_USER"),
         passwd=os.getenv("POINTAGE_PASSWD"),
