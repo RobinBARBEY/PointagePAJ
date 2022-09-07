@@ -86,6 +86,7 @@ def show_login() -> bool:
     qui = Ui_Dialog()
     qui.setupUi(dialog)
     dialog.setWindowTitle("Login")
+    qui.lineEditAnim.setText(database.animateur)
     dialog.show()
     resp = dialog.exec_()
 
@@ -106,6 +107,7 @@ class SplashScreen(QMainWindow):
         self.main = MainWindow()
         self.ui = Ui_SplashScreen()
         self.ui.setupUi(self)
+        database.animateur = ''
 
         # UI ==> INTERFACE CODES
         ########################################################################

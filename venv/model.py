@@ -68,6 +68,17 @@ def insert(table: str, columns: str, values: str):
 
 def create_tables():
     with database.db.cursor() as cursor:
+
+        cursor.execute("""create table if not exists Ville
+(
+    Id_Ville        int auto_increment
+        primary key,
+    Nom_de_la_ville varchar(50)          not null,
+    Code_postal     int                  not null,
+    Dans_la_CMB     tinyint(1) default 0 not null
+);
+""")
+
         # Create table Tuteur_Parent if not exist
         cursor.execute("""create table if not exists Tuteur_Parent
                                     (
