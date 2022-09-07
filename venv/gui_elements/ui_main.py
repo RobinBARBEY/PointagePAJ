@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainlvoRzQ.ui'
+## Form generated from reading UI file 'mainixhBid.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.5
 ##
@@ -1248,6 +1248,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_7.addWidget(self.pushButtonDataPointage)
 
+        self.tableView = QTableView(self.widgetExtraction)
+        self.tableView.setObjectName(u"tableView")
+
+        self.verticalLayout_7.addWidget(self.tableView)
+
 
         self.verticalLayout_5.addWidget(self.widgetExtraction)
 
@@ -1273,7 +1278,7 @@ class Ui_MainWindow(object):
         self.pushButtonAnnulerInsc.clicked.connect(self.lineEditPrenomJeune.clear)
         self.pushButtonAnnulerInsc.clicked.connect(self.lineEditNomJeune.clear)
 
-        self.stackedWidgetPages.setCurrentIndex(0)
+        self.stackedWidgetPages.setCurrentIndex(4)
         self.comboBoxEtabScol.setCurrentIndex(0)
         self.comboBoxModifEtabScol.setCurrentIndex(0)
 
