@@ -1,23 +1,32 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainixhBid.ui'
+## Form generated from reading UI file 'mainlpTfVX.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.5
+## Created by: Qt User Interface Compiler version 6.3.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import *  # type: ignore
-from PySide2.QtGui import *  # type: ignore
-from PySide2.QtWidgets import *  # type: ignore
-
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QAbstractSpinBox, QApplication, QCheckBox, QComboBox,
+    QDateEdit, QFormLayout, QFrame, QGridLayout,
+    QHBoxLayout, QHeaderView, QLabel, QLineEdit,
+    QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
+    QStackedWidget, QTableView, QTextBrowser, QVBoxLayout,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(1145, 766)
         MainWindow.setStyleSheet(u"/*Copyright (c) DevSec Studio. All rights reserved.\n"
 "\n"
 "MIT License\n"
@@ -46,39 +55,78 @@ class Ui_MainWindow(object):
 "{\n"
 "		background-color: #005369;\n"
 "        color: rgb(152, 192, 0);\n"
-"		border-color: rgb(123, 157, 0);\n"
+"		border-radius: 16px;\n"
 "}\n"
 "\n"
+"QFrame\n"
+"{\n"
+"		background-color: #005369;\n"
+"        color: rgb(152, 192, 0);\n"
+"		border: 1px solid rgb(154, 192, 0);\n"
+"		border-color: rgb(123, 157, 0);\n"
+"		border-radius: 16px;\n"
+"		padding: 2px;\n"
+"}\n"
 "\n"
 "/*-----QLabel-----*/\n"
 "QLabel\n"
 "{\n"
 "	background-color: transparent;\n"
 "	color: #98c000;\n"
-"	font-size: 16px;\n"
-"\n"
+"	font-size: 18px;\n"
+"	border: 0px;\n"
+"	padding: 2px;\n"
 "}\n"
 "\n"
 "\n"
 "/*-----QPushButton-----*/\n"
 "QPushButton\n"
 "{\n"
-"	background-color: #007d58;\n"
+"	background-color: rgb(7, 66, 83);\n"
 "	color: rgb(152, 192, 0);\n"
 "	font-size: 16px;\n"
 "	font-weight: bold;\n"
-"	border: none;\n"
-"	border-radius: 3px;\n"
-"	padding: 5px;\n"
+"	border: 1px solid rgb(119, 149, 0);\n"
+"	border-radius: 8px;\n"
+"	padding: 7px;\n"
 "\n"
 "}\n"
 "\n"
 "\n"
 "QPushButton::pressed\n"
 "{\n"
-"	background-color:  rgb(46, 45, 50) ;\n"
-"\n"
+"	background-"
+                        "color: rgb(16, 163, 206) ;\n"
+"	border: 3px solid rgb(128, 156, 15);\n"
 "}\n"
+"\n"
+"/*-----QComboBox-----*/\n"
+"QComboBox\n"
+"{\n"
+"	background-color: rgb(215, 248, 255);\n"
+"	color: rgb(0, 0, 0);\n"
+"	font-size: 18px;\n"
+"	font-weight: bold;\n"
+"	border-radius: 10px;\n"
+"	padding: 6px;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down{\n"
+"	width: 30px;\n"
+"	border: 0px;\n"
+"	padding-right: 0px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow{\n"
+"	image: url(:/Icons/icons8-drop-down-50.png);\n"
+"	height: 20px;\n"
+"	width: 20px;\n"
+"}\n"
+"\n"
+"QComboBox:on{\n"
+"	 border: 1px solid rgb(0, 0, 0);\n"
+"}\n"
+"\n"
 "\n"
 "\n"
 "/*-----QCheckBox-----*/\n"
@@ -86,7 +134,7 @@ class Ui_MainWindow(object):
 "{\n"
 "	background-color: transparent;\n"
 "	color: #fff;\n"
-"	font-size: 14px;\n"
+"	font-size: 18px;\n"
 "	font-weight: bold;\n"
 "	border: none;\n"
 "	border-radius: 5px;\n"
@@ -94,8 +142,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "\n"
-"/*----"
-                        "-QCheckBox-----*/\n"
+"/*-----QCheckBox-----*/\n"
 "QCheckBox::indicator\n"
 "{\n"
 "    color: #b1b1b1;\n"
@@ -106,7 +153,8 @@ class Ui_MainWindow(object):
 "\n"
 "}\n"
 "\n"
-"\n"
+""
+                        "\n"
 "QCheckBox::indicator:checked\n"
 "{\n"
 "    image:url(\"./ressources/check.png\");\n"
@@ -142,26 +190,50 @@ class Ui_MainWindow(object):
 "/*-----QLineEdit-----*/\n"
 "QLineEdit\n"
 "{\n"
-"	background-color: #c2c7d5;\n"
-"	color: #000;\n"
+"	background-color: rgb(215, 248, 255);\n"
+"	color: rgb(0, 0, 0);\n"
+"	font-size: 18px;\n"
 "	font-weight: bold;\n"
-"	border: none;\n"
-"	border-radius: 2px;\n"
-"	padding: 3px;\n"
+"	border-radius: 10px;\n"
+"	padding: 6px;\n"
 "\n"
 "}\n"
-""
-                        "\n"
+"\n"
+"/*-----QLineEdit-----*/\n"
+"QDateEdit\n"
+"{\n"
+"	background-color: rgb(215, 248, 255);\n"
+"	color: rgb(0, 0, 0);\n"
+"	font-size: 18px;\n"
+"	font-weight: bold;\n"
+"	border-radiu"
+                        "s: 10px;\n"
+"	padding: 6px;\n"
+"}\n"
+"\n"
+"QDateEdit::drop-down{\n"
+"	width: 30px;\n"
+"	border: 0px;\n"
+"	padding-right: 0px;\n"
+"}\n"
+"\n"
+"QDateEdit::down-arrow{\n"
+"	image: url(:/Icons/icons8-drop-down-50.png);\n"
+"	height: 20px;\n"
+"	width: 20px;\n"
+"}\n"
+"\n"
 "\n"
 "/*-----QListView-----*/\n"
 "QListView\n"
 "{\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(50, 61, 80, 255),stop:1 rgba(44, 49, 69, 255));\n"
-"	color: #fff;\n"
+"	background-color: rgb(7, 66, 83);\n"
+"	color: rgb(152, 192, 19)rgb(152, 192, 0);\n"
 "	font-size: 14px;\n"
 "	font-weight: bold;\n"
 "	border: 1px solid #191919;\n"
-"	show-decoration-selected: 0;\n"
+"	border-radius: 10px;\n"
+"\n"
 "\n"
 "}\n"
 "\n"
@@ -169,10 +241,10 @@ class Ui_MainWindow(object):
 "QListView::item\n"
 "{\n"
 "	color: #31cecb;\n"
-"	background-color: #454e5e;\n"
-"	border: none;\n"
+"	background-color:rgb(7, 66, 83);\n"
+"	border: 1px solid rgb(152, 192, 0);\n"
 "	padding: 5px;\n"
-"	border-radius: 0px;\n"
+"	border-radius: 10px;\n"
 "	padding-left : 10px;\n"
 "	height: 42px;\n"
 "\n"
@@ -180,8 +252,7 @@ class Ui_MainWindow(object):
 "\n"
 "QListView::item:selected\n"
 "{\n"
-"	color: #31cecb;\n"
-"	background-color: #454e5e;\n"
+"	background-color: rgb(7, 66, 83);\n"
 "\n"
 "}\n"
 "\n"
@@ -196,7 +267,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "\n"
-"QListView::item:!selected:hover\n"
+"QListVi"
+                        "ew::item:!selected:hover\n"
 "{\n"
 "	color: #bbbcba;\n"
 "	background-color: #454e5e;\n"
@@ -209,8 +281,7 @@ class Ui_MainWindow(object):
 "/*-----QTreeView-----*/\n"
 "QTreeView \n"
 "{\n"
-"	ba"
-                        "ckground-color: #232939;\n"
+"	background-color: #232939;\n"
 "	show-decoration-selected: 0;\n"
 "	color: #c2c8d7;\n"
 "\n"
@@ -257,7 +328,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QTreeView::branch:open:has-children:!has-siblings,\n"
-"QTreeView::branch:open:has-children:has-siblings  \n"
+"QTreeView::branch:open:has-children:has-"
+                        "siblings  \n"
 "{\n"
 "	image: url(://tree-open.png);\n"
 "\n"
@@ -269,8 +341,7 @@ class Ui_MainWindow(object):
 "{\n"
 "    background-color: #232939;\n"
 "	border: 1px solid gray;\n"
-""
-                        "    color: #f0f0f0;\n"
+"    color: #f0f0f0;\n"
 "    gridline-color: #232939;\n"
 "    outline : 0;\n"
 "\n"
@@ -321,7 +392,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "\n"
-"QHeaderView::section\n"
+"QHeaderView::section"
+                        "\n"
 "{\n"
 "	color: #fff;\n"
 "	border-top: 0px;\n"
@@ -330,8 +402,7 @@ class Ui_MainWindow(object):
 "	background-color: #343a49;\n"
 "    margin-top:1px;\n"
 "	margin-bottom:1px;\n"
-"	pad"
-                        "ding: 5px;\n"
+"	padding: 5px;\n"
 "\n"
 "}\n"
 "\n"
@@ -383,7 +454,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "\n"
-"QHeaderView::section::horizontal\n"
+"QHead"
+                        "erView::section::horizontal\n"
 "{\n"
 "    border-left: 1px solid #353635;\n"
 "\n"
@@ -394,8 +466,7 @@ class Ui_MainWindow(object):
 "QScrollBar:horizontal \n"
 "{\n"
 "    background-color: transparent;\n"
-"    he"
-                        "ight: 8px;\n"
+"    height: 8px;\n"
 "    margin: 0px;\n"
 "    padding: 0px;\n"
 "\n"
@@ -442,7 +513,8 @@ class Ui_MainWindow(object):
 "\n"
 "QScrollBar::add-line:vertical, \n"
 "QScrollBar::sub-line:vertical,\n"
-"QScrollBar::add-page:vertical, \n"
+"QScrollBar::add-page"
+                        ":vertical, \n"
 "QScrollBar::sub-page:vertical \n"
 "{\n"
 "    height: 0px;\n"
@@ -457,6 +529,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.frameHeader = QFrame(self.centralwidgetMain)
         self.frameHeader.setObjectName(u"frameHeader")
+        self.frameHeader.setStyleSheet(u"")
         self.frameHeader.setFrameShape(QFrame.StyledPanel)
         self.frameHeader.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_3 = QHBoxLayout(self.frameHeader)
@@ -469,13 +542,18 @@ class Ui_MainWindow(object):
         self.dateEditAfficahgeDate = QDateEdit(self.frameHeader)
         self.dateEditAfficahgeDate.setObjectName(u"dateEditAfficahgeDate")
         self.dateEditAfficahgeDate.setEnabled(False)
-        sizePolicy = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.dateEditAfficahgeDate.sizePolicy().hasHeightForWidth())
         self.dateEditAfficahgeDate.setSizePolicy(sizePolicy)
-        self.dateEditAfficahgeDate.setMinimumSize(QSize(0, 0))
+        self.dateEditAfficahgeDate.setMinimumSize(QSize(140, 0))
         self.dateEditAfficahgeDate.setMaximumSize(QSize(90, 16777215))
+        self.dateEditAfficahgeDate.setStyleSheet(u"background-color: rgb(0, 83, 105);\n"
+"color: rgb(152, 192, 0);\n"
+"border: 1px solid rgb(123, 157, 0);\n"
+"border-radius: 10px;\n"
+"padding: 5px;")
         self.dateEditAfficahgeDate.setWrapping(False)
         self.dateEditAfficahgeDate.setFrame(True)
         self.dateEditAfficahgeDate.setAlignment(Qt.AlignCenter)
@@ -490,23 +568,21 @@ class Ui_MainWindow(object):
 
         self.SideMenu = QWidget(self.centralwidgetMain)
         self.SideMenu.setObjectName(u"SideMenu")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.SideMenu.sizePolicy().hasHeightForWidth())
-        self.SideMenu.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.SideMenu.sizePolicy().hasHeightForWidth())
+        self.SideMenu.setSizePolicy(sizePolicy)
         self.horizontalLayout_4 = QHBoxLayout(self.SideMenu)
         self.horizontalLayout_4.setSpacing(6)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.MenuFrame = QFrame(self.SideMenu)
         self.MenuFrame.setObjectName(u"MenuFrame")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy2.setHorizontalStretch(3)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.MenuFrame.sizePolicy().hasHeightForWidth())
-        self.MenuFrame.setSizePolicy(sizePolicy2)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy1.setHorizontalStretch(3)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.MenuFrame.sizePolicy().hasHeightForWidth())
+        self.MenuFrame.setSizePolicy(sizePolicy1)
         self.MenuFrame.setMaximumSize(QSize(16777215, 16777215))
+        self.MenuFrame.setStyleSheet(u"")
         self.MenuFrame.setFrameShape(QFrame.StyledPanel)
         self.MenuFrame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_3 = QVBoxLayout(self.MenuFrame)
@@ -514,19 +590,19 @@ class Ui_MainWindow(object):
         self.PB_Pointage = QPushButton(self.MenuFrame)
         self.PB_Pointage.setObjectName(u"PB_Pointage")
         self.PB_Pointage.setEnabled(True)
-        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.PB_Pointage.sizePolicy().hasHeightForWidth())
-        self.PB_Pointage.setSizePolicy(sizePolicy3)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.PB_Pointage.sizePolicy().hasHeightForWidth())
+        self.PB_Pointage.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_3.addWidget(self.PB_Pointage)
 
         self.PB_Inscription = QPushButton(self.MenuFrame)
         self.PB_Inscription.setObjectName(u"PB_Inscription")
         self.PB_Inscription.setEnabled(True)
-        sizePolicy3.setHeightForWidth(self.PB_Inscription.sizePolicy().hasHeightForWidth())
-        self.PB_Inscription.setSizePolicy(sizePolicy3)
+        sizePolicy2.setHeightForWidth(self.PB_Inscription.sizePolicy().hasHeightForWidth())
+        self.PB_Inscription.setSizePolicy(sizePolicy2)
         self.PB_Inscription.setCheckable(False)
         self.PB_Inscription.setAutoDefault(False)
         self.PB_Inscription.setFlat(False)
@@ -535,22 +611,22 @@ class Ui_MainWindow(object):
 
         self.PB_Modif = QPushButton(self.MenuFrame)
         self.PB_Modif.setObjectName(u"PB_Modif")
-        sizePolicy3.setHeightForWidth(self.PB_Modif.sizePolicy().hasHeightForWidth())
-        self.PB_Modif.setSizePolicy(sizePolicy3)
+        sizePolicy2.setHeightForWidth(self.PB_Modif.sizePolicy().hasHeightForWidth())
+        self.PB_Modif.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_3.addWidget(self.PB_Modif)
 
         self.PB_Totaux = QPushButton(self.MenuFrame)
         self.PB_Totaux.setObjectName(u"PB_Totaux")
-        sizePolicy3.setHeightForWidth(self.PB_Totaux.sizePolicy().hasHeightForWidth())
-        self.PB_Totaux.setSizePolicy(sizePolicy3)
+        sizePolicy2.setHeightForWidth(self.PB_Totaux.sizePolicy().hasHeightForWidth())
+        self.PB_Totaux.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_3.addWidget(self.PB_Totaux)
 
         self.PB_Extraction = QPushButton(self.MenuFrame)
         self.PB_Extraction.setObjectName(u"PB_Extraction")
-        sizePolicy3.setHeightForWidth(self.PB_Extraction.sizePolicy().hasHeightForWidth())
-        self.PB_Extraction.setSizePolicy(sizePolicy3)
+        sizePolicy2.setHeightForWidth(self.PB_Extraction.sizePolicy().hasHeightForWidth())
+        self.PB_Extraction.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_3.addWidget(self.PB_Extraction)
 
@@ -564,11 +640,17 @@ class Ui_MainWindow(object):
 
         self.stackedWidgetPages = QStackedWidget(self.SideMenu)
         self.stackedWidgetPages.setObjectName(u"stackedWidgetPages")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy4.setHorizontalStretch(10)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.stackedWidgetPages.sizePolicy().hasHeightForWidth())
-        self.stackedWidgetPages.setSizePolicy(sizePolicy4)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy3.setHorizontalStretch(10)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.stackedWidgetPages.sizePolicy().hasHeightForWidth())
+        self.stackedWidgetPages.setSizePolicy(sizePolicy3)
+        self.stackedWidgetPages.setStyleSheet(u"QStackedWidget{\n"
+"		background-color: #005369;\n"
+"        color: rgb(152, 192, 0);\n"
+"		border: 1px solid rgb(154, 192, 0);\n"
+"		border-color: rgb(123, 157, 0);\n"
+"}")
         self.stackedWidgetPages.setFrameShape(QFrame.StyledPanel)
         self.stackedWidgetPages.setFrameShadow(QFrame.Raised)
         self.PagePointage = QWidget()
@@ -596,8 +678,8 @@ class Ui_MainWindow(object):
 
         self.frameEntreNom = QFrame(self.PagePointage)
         self.frameEntreNom.setObjectName(u"frameEntreNom")
-        sizePolicy1.setHeightForWidth(self.frameEntreNom.sizePolicy().hasHeightForWidth())
-        self.frameEntreNom.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.frameEntreNom.sizePolicy().hasHeightForWidth())
+        self.frameEntreNom.setSizePolicy(sizePolicy)
         self.frameEntreNom.setFrameShape(QFrame.StyledPanel)
         self.frameEntreNom.setFrameShadow(QFrame.Raised)
         self.verticalLayout_15 = QVBoxLayout(self.frameEntreNom)
@@ -612,8 +694,8 @@ class Ui_MainWindow(object):
 
         self.comboBoxEntreePointage = QComboBox(self.PagePointage)
         self.comboBoxEntreePointage.setObjectName(u"comboBoxEntreePointage")
-        sizePolicy1.setHeightForWidth(self.comboBoxEntreePointage.sizePolicy().hasHeightForWidth())
-        self.comboBoxEntreePointage.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.comboBoxEntreePointage.sizePolicy().hasHeightForWidth())
+        self.comboBoxEntreePointage.setSizePolicy(sizePolicy)
         self.comboBoxEntreePointage.setStyleSheet(u"")
         self.comboBoxEntreePointage.setEditable(True)
         self.comboBoxEntreePointage.setInsertPolicy(QComboBox.NoInsert)
@@ -622,11 +704,11 @@ class Ui_MainWindow(object):
 
         self.pushButtonValiderPointage = QPushButton(self.PagePointage)
         self.pushButtonValiderPointage.setObjectName(u"pushButtonValiderPointage")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Fixed)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.pushButtonValiderPointage.sizePolicy().hasHeightForWidth())
-        self.pushButtonValiderPointage.setSizePolicy(sizePolicy5)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Fixed)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.pushButtonValiderPointage.sizePolicy().hasHeightForWidth())
+        self.pushButtonValiderPointage.setSizePolicy(sizePolicy4)
 
         self.verticalLayout_2.addWidget(self.pushButtonValiderPointage, 0, Qt.AlignHCenter)
 
@@ -646,11 +728,11 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.PageNameInscritpion = QFrame(self.PageInscription)
         self.PageNameInscritpion.setObjectName(u"PageNameInscritpion")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.PageNameInscritpion.sizePolicy().hasHeightForWidth())
-        self.PageNameInscritpion.setSizePolicy(sizePolicy6)
+        sizePolicy5 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.PageNameInscritpion.sizePolicy().hasHeightForWidth())
+        self.PageNameInscritpion.setSizePolicy(sizePolicy5)
         self.PageNameInscritpion.setFrameShape(QFrame.StyledPanel)
         self.PageNameInscritpion.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_5 = QHBoxLayout(self.PageNameInscritpion)
@@ -665,11 +747,11 @@ class Ui_MainWindow(object):
 
         self.frameInsc = QFrame(self.PageInscription)
         self.frameInsc.setObjectName(u"frameInsc")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.frameInsc.sizePolicy().hasHeightForWidth())
-        self.frameInsc.setSizePolicy(sizePolicy7)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.frameInsc.sizePolicy().hasHeightForWidth())
+        self.frameInsc.setSizePolicy(sizePolicy6)
         self.frameInsc.setFrameShape(QFrame.StyledPanel)
         self.frameInsc.setFrameShadow(QFrame.Raised)
         self.formLayout_2 = QFormLayout(self.frameInsc)
@@ -681,8 +763,8 @@ class Ui_MainWindow(object):
 
         self.lineEditNomJeune = QLineEdit(self.frameInsc)
         self.lineEditNomJeune.setObjectName(u"lineEditNomJeune")
-        sizePolicy6.setHeightForWidth(self.lineEditNomJeune.sizePolicy().hasHeightForWidth())
-        self.lineEditNomJeune.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.lineEditNomJeune.sizePolicy().hasHeightForWidth())
+        self.lineEditNomJeune.setSizePolicy(sizePolicy5)
 
         self.formLayout_2.setWidget(1, QFormLayout.FieldRole, self.lineEditNomJeune)
 
@@ -693,8 +775,8 @@ class Ui_MainWindow(object):
 
         self.lineEditPrenomJeune = QLineEdit(self.frameInsc)
         self.lineEditPrenomJeune.setObjectName(u"lineEditPrenomJeune")
-        sizePolicy6.setHeightForWidth(self.lineEditPrenomJeune.sizePolicy().hasHeightForWidth())
-        self.lineEditPrenomJeune.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.lineEditPrenomJeune.sizePolicy().hasHeightForWidth())
+        self.lineEditPrenomJeune.setSizePolicy(sizePolicy5)
 
         self.formLayout_2.setWidget(2, QFormLayout.FieldRole, self.lineEditPrenomJeune)
 
@@ -705,8 +787,11 @@ class Ui_MainWindow(object):
 
         self.dateEditNaissance = QDateEdit(self.frameInsc)
         self.dateEditNaissance.setObjectName(u"dateEditNaissance")
-        sizePolicy1.setHeightForWidth(self.dateEditNaissance.sizePolicy().hasHeightForWidth())
-        self.dateEditNaissance.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.dateEditNaissance.sizePolicy().hasHeightForWidth())
+        self.dateEditNaissance.setSizePolicy(sizePolicy)
+        self.dateEditNaissance.setWrapping(False)
+        self.dateEditNaissance.setButtonSymbols(QAbstractSpinBox.NoButtons)
+        self.dateEditNaissance.setCalendarPopup(False)
 
         self.formLayout_2.setWidget(3, QFormLayout.FieldRole, self.dateEditNaissance)
 
@@ -720,8 +805,8 @@ class Ui_MainWindow(object):
         self.comboBoxGenre.addItem("")
         self.comboBoxGenre.addItem("")
         self.comboBoxGenre.setObjectName(u"comboBoxGenre")
-        sizePolicy1.setHeightForWidth(self.comboBoxGenre.sizePolicy().hasHeightForWidth())
-        self.comboBoxGenre.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.comboBoxGenre.sizePolicy().hasHeightForWidth())
+        self.comboBoxGenre.setSizePolicy(sizePolicy)
         self.comboBoxGenre.setInsertPolicy(QComboBox.NoInsert)
 
         self.formLayout_2.setWidget(4, QFormLayout.FieldRole, self.comboBoxGenre)
@@ -733,8 +818,8 @@ class Ui_MainWindow(object):
 
         self.lineEditNomParent = QLineEdit(self.frameInsc)
         self.lineEditNomParent.setObjectName(u"lineEditNomParent")
-        sizePolicy6.setHeightForWidth(self.lineEditNomParent.sizePolicy().hasHeightForWidth())
-        self.lineEditNomParent.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.lineEditNomParent.sizePolicy().hasHeightForWidth())
+        self.lineEditNomParent.setSizePolicy(sizePolicy5)
 
         self.formLayout_2.setWidget(5, QFormLayout.FieldRole, self.lineEditNomParent)
 
@@ -745,8 +830,8 @@ class Ui_MainWindow(object):
 
         self.lineEditPrenomParent = QLineEdit(self.frameInsc)
         self.lineEditPrenomParent.setObjectName(u"lineEditPrenomParent")
-        sizePolicy6.setHeightForWidth(self.lineEditPrenomParent.sizePolicy().hasHeightForWidth())
-        self.lineEditPrenomParent.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.lineEditPrenomParent.sizePolicy().hasHeightForWidth())
+        self.lineEditPrenomParent.setSizePolicy(sizePolicy5)
 
         self.formLayout_2.setWidget(6, QFormLayout.FieldRole, self.lineEditPrenomParent)
 
@@ -757,8 +842,8 @@ class Ui_MainWindow(object):
 
         self.lineEditNumParent = QLineEdit(self.frameInsc)
         self.lineEditNumParent.setObjectName(u"lineEditNumParent")
-        sizePolicy6.setHeightForWidth(self.lineEditNumParent.sizePolicy().hasHeightForWidth())
-        self.lineEditNumParent.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.lineEditNumParent.sizePolicy().hasHeightForWidth())
+        self.lineEditNumParent.setSizePolicy(sizePolicy5)
 
         self.formLayout_2.setWidget(7, QFormLayout.FieldRole, self.lineEditNumParent)
 
@@ -769,8 +854,8 @@ class Ui_MainWindow(object):
 
         self.comboBoxCommune = QComboBox(self.frameInsc)
         self.comboBoxCommune.setObjectName(u"comboBoxCommune")
-        sizePolicy6.setHeightForWidth(self.comboBoxCommune.sizePolicy().hasHeightForWidth())
-        self.comboBoxCommune.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.comboBoxCommune.sizePolicy().hasHeightForWidth())
+        self.comboBoxCommune.setSizePolicy(sizePolicy5)
         self.comboBoxCommune.setEditable(True)
         self.comboBoxCommune.setInsertPolicy(QComboBox.NoInsert)
         self.comboBoxCommune.setFrame(True)
@@ -799,8 +884,8 @@ class Ui_MainWindow(object):
         self.comboBoxEtabScol.addItem("")
         self.comboBoxEtabScol.addItem("")
         self.comboBoxEtabScol.setObjectName(u"comboBoxEtabScol")
-        sizePolicy6.setHeightForWidth(self.comboBoxEtabScol.sizePolicy().hasHeightForWidth())
-        self.comboBoxEtabScol.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.comboBoxEtabScol.sizePolicy().hasHeightForWidth())
+        self.comboBoxEtabScol.setSizePolicy(sizePolicy5)
         self.comboBoxEtabScol.setEditable(True)
         self.comboBoxEtabScol.setInsertPolicy(QComboBox.NoInsert)
 
@@ -816,8 +901,8 @@ class Ui_MainWindow(object):
         self.comboBoxRegSoc.addItem("")
         self.comboBoxRegSoc.addItem("")
         self.comboBoxRegSoc.setObjectName(u"comboBoxRegSoc")
-        sizePolicy1.setHeightForWidth(self.comboBoxRegSoc.sizePolicy().hasHeightForWidth())
-        self.comboBoxRegSoc.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.comboBoxRegSoc.sizePolicy().hasHeightForWidth())
+        self.comboBoxRegSoc.setSizePolicy(sizePolicy)
         self.comboBoxRegSoc.setInsertPolicy(QComboBox.NoInsert)
 
         self.formLayout_2.setWidget(10, QFormLayout.FieldRole, self.comboBoxRegSoc)
@@ -878,21 +963,21 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.labelSelJeune = QLabel(self.frameSelJeune)
         self.labelSelJeune.setObjectName(u"labelSelJeune")
-        sizePolicy8 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Minimum)
-        sizePolicy8.setHorizontalStretch(0)
-        sizePolicy8.setVerticalStretch(0)
-        sizePolicy8.setHeightForWidth(self.labelSelJeune.sizePolicy().hasHeightForWidth())
-        self.labelSelJeune.setSizePolicy(sizePolicy8)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Minimum)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.labelSelJeune.sizePolicy().hasHeightForWidth())
+        self.labelSelJeune.setSizePolicy(sizePolicy7)
 
         self.horizontalLayout_7.addWidget(self.labelSelJeune)
 
         self.comboBoxModifSelJeune = QComboBox(self.frameSelJeune)
         self.comboBoxModifSelJeune.setObjectName(u"comboBoxModifSelJeune")
-        sizePolicy9 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Minimum)
-        sizePolicy9.setHorizontalStretch(0)
-        sizePolicy9.setVerticalStretch(0)
-        sizePolicy9.setHeightForWidth(self.comboBoxModifSelJeune.sizePolicy().hasHeightForWidth())
-        self.comboBoxModifSelJeune.setSizePolicy(sizePolicy9)
+        sizePolicy8 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Minimum)
+        sizePolicy8.setHorizontalStretch(0)
+        sizePolicy8.setVerticalStretch(0)
+        sizePolicy8.setHeightForWidth(self.comboBoxModifSelJeune.sizePolicy().hasHeightForWidth())
+        self.comboBoxModifSelJeune.setSizePolicy(sizePolicy8)
         self.comboBoxModifSelJeune.setEditable(True)
         self.comboBoxModifSelJeune.setInsertPolicy(QComboBox.NoInsert)
 
@@ -900,11 +985,11 @@ class Ui_MainWindow(object):
 
         self.pushButtonModifSelJeune = QPushButton(self.frameSelJeune)
         self.pushButtonModifSelJeune.setObjectName(u"pushButtonModifSelJeune")
-        sizePolicy10 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
-        sizePolicy10.setHorizontalStretch(0)
-        sizePolicy10.setVerticalStretch(0)
-        sizePolicy10.setHeightForWidth(self.pushButtonModifSelJeune.sizePolicy().hasHeightForWidth())
-        self.pushButtonModifSelJeune.setSizePolicy(sizePolicy10)
+        sizePolicy9 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
+        sizePolicy9.setHorizontalStretch(0)
+        sizePolicy9.setVerticalStretch(0)
+        sizePolicy9.setHeightForWidth(self.pushButtonModifSelJeune.sizePolicy().hasHeightForWidth())
+        self.pushButtonModifSelJeune.setSizePolicy(sizePolicy9)
 
         self.horizontalLayout_7.addWidget(self.pushButtonModifSelJeune)
 
@@ -913,8 +998,8 @@ class Ui_MainWindow(object):
 
         self.frameModifiaction = QFrame(self.PageModification)
         self.frameModifiaction.setObjectName(u"frameModifiaction")
-        sizePolicy7.setHeightForWidth(self.frameModifiaction.sizePolicy().hasHeightForWidth())
-        self.frameModifiaction.setSizePolicy(sizePolicy7)
+        sizePolicy6.setHeightForWidth(self.frameModifiaction.sizePolicy().hasHeightForWidth())
+        self.frameModifiaction.setSizePolicy(sizePolicy6)
         self.frameModifiaction.setFrameShape(QFrame.StyledPanel)
         self.frameModifiaction.setFrameShadow(QFrame.Raised)
         self.formLayout = QFormLayout(self.frameModifiaction)
@@ -951,6 +1036,7 @@ class Ui_MainWindow(object):
 
         self.dateEditModifDateNaiss = QDateEdit(self.frameModifiaction)
         self.dateEditModifDateNaiss.setObjectName(u"dateEditModifDateNaiss")
+        self.dateEditModifDateNaiss.setButtonSymbols(QAbstractSpinBox.NoButtons)
 
         self.formLayout.setWidget(3, QFormLayout.FieldRole, self.dateEditModifDateNaiss)
 
@@ -964,8 +1050,8 @@ class Ui_MainWindow(object):
         self.comboBoxModifRegSoc.addItem("")
         self.comboBoxModifRegSoc.addItem("")
         self.comboBoxModifRegSoc.setObjectName(u"comboBoxModifRegSoc")
-        sizePolicy3.setHeightForWidth(self.comboBoxModifRegSoc.sizePolicy().hasHeightForWidth())
-        self.comboBoxModifRegSoc.setSizePolicy(sizePolicy3)
+        sizePolicy2.setHeightForWidth(self.comboBoxModifRegSoc.sizePolicy().hasHeightForWidth())
+        self.comboBoxModifRegSoc.setSizePolicy(sizePolicy2)
 
         self.formLayout.setWidget(5, QFormLayout.FieldRole, self.comboBoxModifRegSoc)
 
@@ -999,11 +1085,11 @@ class Ui_MainWindow(object):
 
         self.comboBoxModifCom = QComboBox(self.frameModifiaction)
         self.comboBoxModifCom.setObjectName(u"comboBoxModifCom")
-        sizePolicy11 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        sizePolicy11.setHorizontalStretch(0)
-        sizePolicy11.setVerticalStretch(0)
-        sizePolicy11.setHeightForWidth(self.comboBoxModifCom.sizePolicy().hasHeightForWidth())
-        self.comboBoxModifCom.setSizePolicy(sizePolicy11)
+        sizePolicy10 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy10.setHorizontalStretch(0)
+        sizePolicy10.setVerticalStretch(0)
+        sizePolicy10.setHeightForWidth(self.comboBoxModifCom.sizePolicy().hasHeightForWidth())
+        self.comboBoxModifCom.setSizePolicy(sizePolicy10)
         self.comboBoxModifCom.setEditable(True)
 
         self.formLayout.setWidget(9, QFormLayout.FieldRole, self.comboBoxModifCom)
@@ -1044,8 +1130,8 @@ class Ui_MainWindow(object):
         self.comboBoxModifEtabScol.addItem("")
         self.comboBoxModifEtabScol.addItem("")
         self.comboBoxModifEtabScol.setObjectName(u"comboBoxModifEtabScol")
-        sizePolicy6.setHeightForWidth(self.comboBoxModifEtabScol.sizePolicy().hasHeightForWidth())
-        self.comboBoxModifEtabScol.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.comboBoxModifEtabScol.sizePolicy().hasHeightForWidth())
+        self.comboBoxModifEtabScol.setSizePolicy(sizePolicy5)
         self.comboBoxModifEtabScol.setEditable(True)
         self.comboBoxModifEtabScol.setInsertPolicy(QComboBox.NoInsert)
 
@@ -1082,8 +1168,8 @@ class Ui_MainWindow(object):
 
         self.widgetSelDates = QWidget(self.PageTotaux)
         self.widgetSelDates.setObjectName(u"widgetSelDates")
-        sizePolicy1.setHeightForWidth(self.widgetSelDates.sizePolicy().hasHeightForWidth())
-        self.widgetSelDates.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.widgetSelDates.sizePolicy().hasHeightForWidth())
+        self.widgetSelDates.setSizePolicy(sizePolicy)
         self.widgetSelDates.setMinimumSize(QSize(0, 0))
         self.gridLayout = QGridLayout(self.widgetSelDates)
         self.gridLayout.setSpacing(10)
@@ -1091,6 +1177,7 @@ class Ui_MainWindow(object):
         self.gridLayout.setContentsMargins(6, 10, -1, 10)
         self.dateEditFin = QDateEdit(self.widgetSelDates)
         self.dateEditFin.setObjectName(u"dateEditFin")
+        self.dateEditFin.setLocale(QLocale(QLocale.French, QLocale.France))
         self.dateEditFin.setCalendarPopup(True)
         self.dateEditFin.setDate(QDate(2022, 8, 19))
 
@@ -1098,11 +1185,12 @@ class Ui_MainWindow(object):
 
         self.dateEditDebut = QDateEdit(self.widgetSelDates)
         self.dateEditDebut.setObjectName(u"dateEditDebut")
-        sizePolicy12 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
-        sizePolicy12.setHorizontalStretch(0)
-        sizePolicy12.setVerticalStretch(0)
-        sizePolicy12.setHeightForWidth(self.dateEditDebut.sizePolicy().hasHeightForWidth())
-        self.dateEditDebut.setSizePolicy(sizePolicy12)
+        sizePolicy11 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
+        sizePolicy11.setHorizontalStretch(0)
+        sizePolicy11.setVerticalStretch(0)
+        sizePolicy11.setHeightForWidth(self.dateEditDebut.sizePolicy().hasHeightForWidth())
+        self.dateEditDebut.setSizePolicy(sizePolicy11)
+        self.dateEditDebut.setLocale(QLocale(QLocale.French, QLocale.France))
         self.dateEditDebut.setCalendarPopup(True)
         self.dateEditDebut.setDate(QDate(2022, 8, 19))
 
@@ -1141,70 +1229,70 @@ class Ui_MainWindow(object):
 
         self.labelCocheFiltres = QLabel(self.PageTotaux)
         self.labelCocheFiltres.setObjectName(u"labelCocheFiltres")
-        sizePolicy1.setHeightForWidth(self.labelCocheFiltres.sizePolicy().hasHeightForWidth())
-        self.labelCocheFiltres.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.labelCocheFiltres.sizePolicy().hasHeightForWidth())
+        self.labelCocheFiltres.setSizePolicy(sizePolicy)
 
         self.verticalLayout_13.addWidget(self.labelCocheFiltres, 0, Qt.AlignBottom)
 
         self.widgetSelFiltres = QWidget(self.PageTotaux)
         self.widgetSelFiltres.setObjectName(u"widgetSelFiltres")
-        sizePolicy1.setHeightForWidth(self.widgetSelFiltres.sizePolicy().hasHeightForWidth())
-        self.widgetSelFiltres.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.widgetSelFiltres.sizePolicy().hasHeightForWidth())
+        self.widgetSelFiltres.setSizePolicy(sizePolicy)
         self.widgetSelFiltres.setMinimumSize(QSize(0, 50))
         self.horizontalLayout = QHBoxLayout(self.widgetSelFiltres)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.checkBoxLundi = QCheckBox(self.widgetSelFiltres)
         self.checkBoxLundi.setObjectName(u"checkBoxLundi")
-        sizePolicy1.setHeightForWidth(self.checkBoxLundi.sizePolicy().hasHeightForWidth())
-        self.checkBoxLundi.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.checkBoxLundi.sizePolicy().hasHeightForWidth())
+        self.checkBoxLundi.setSizePolicy(sizePolicy)
         self.checkBoxLundi.setChecked(True)
 
         self.horizontalLayout.addWidget(self.checkBoxLundi)
 
         self.checkBoxMardi = QCheckBox(self.widgetSelFiltres)
         self.checkBoxMardi.setObjectName(u"checkBoxMardi")
-        sizePolicy1.setHeightForWidth(self.checkBoxMardi.sizePolicy().hasHeightForWidth())
-        self.checkBoxMardi.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.checkBoxMardi.sizePolicy().hasHeightForWidth())
+        self.checkBoxMardi.setSizePolicy(sizePolicy)
         self.checkBoxMardi.setChecked(True)
 
         self.horizontalLayout.addWidget(self.checkBoxMardi)
 
         self.checkBoxMercredi = QCheckBox(self.widgetSelFiltres)
         self.checkBoxMercredi.setObjectName(u"checkBoxMercredi")
-        sizePolicy1.setHeightForWidth(self.checkBoxMercredi.sizePolicy().hasHeightForWidth())
-        self.checkBoxMercredi.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.checkBoxMercredi.sizePolicy().hasHeightForWidth())
+        self.checkBoxMercredi.setSizePolicy(sizePolicy)
         self.checkBoxMercredi.setChecked(True)
 
         self.horizontalLayout.addWidget(self.checkBoxMercredi)
 
         self.checkBoxJeudi = QCheckBox(self.widgetSelFiltres)
         self.checkBoxJeudi.setObjectName(u"checkBoxJeudi")
-        sizePolicy1.setHeightForWidth(self.checkBoxJeudi.sizePolicy().hasHeightForWidth())
-        self.checkBoxJeudi.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.checkBoxJeudi.sizePolicy().hasHeightForWidth())
+        self.checkBoxJeudi.setSizePolicy(sizePolicy)
         self.checkBoxJeudi.setChecked(True)
 
         self.horizontalLayout.addWidget(self.checkBoxJeudi)
 
         self.checkBoxVendredi = QCheckBox(self.widgetSelFiltres)
         self.checkBoxVendredi.setObjectName(u"checkBoxVendredi")
-        sizePolicy1.setHeightForWidth(self.checkBoxVendredi.sizePolicy().hasHeightForWidth())
-        self.checkBoxVendredi.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.checkBoxVendredi.sizePolicy().hasHeightForWidth())
+        self.checkBoxVendredi.setSizePolicy(sizePolicy)
         self.checkBoxVendredi.setChecked(True)
 
         self.horizontalLayout.addWidget(self.checkBoxVendredi)
 
         self.checkBoxSamedi = QCheckBox(self.widgetSelFiltres)
         self.checkBoxSamedi.setObjectName(u"checkBoxSamedi")
-        sizePolicy1.setHeightForWidth(self.checkBoxSamedi.sizePolicy().hasHeightForWidth())
-        self.checkBoxSamedi.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.checkBoxSamedi.sizePolicy().hasHeightForWidth())
+        self.checkBoxSamedi.setSizePolicy(sizePolicy)
         self.checkBoxSamedi.setChecked(True)
 
         self.horizontalLayout.addWidget(self.checkBoxSamedi)
 
         self.checkBoxPeriodeVac = QCheckBox(self.widgetSelFiltres)
         self.checkBoxPeriodeVac.setObjectName(u"checkBoxPeriodeVac")
-        sizePolicy1.setHeightForWidth(self.checkBoxPeriodeVac.sizePolicy().hasHeightForWidth())
-        self.checkBoxPeriodeVac.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.checkBoxPeriodeVac.sizePolicy().hasHeightForWidth())
+        self.checkBoxPeriodeVac.setSizePolicy(sizePolicy)
         self.checkBoxPeriodeVac.setChecked(True)
 
         self.horizontalLayout.addWidget(self.checkBoxPeriodeVac)
@@ -1233,8 +1321,8 @@ class Ui_MainWindow(object):
 
         self.widgetExtraction = QWidget(self.PageExtraction)
         self.widgetExtraction.setObjectName(u"widgetExtraction")
-        sizePolicy7.setHeightForWidth(self.widgetExtraction.sizePolicy().hasHeightForWidth())
-        self.widgetExtraction.setSizePolicy(sizePolicy7)
+        sizePolicy6.setHeightForWidth(self.widgetExtraction.sizePolicy().hasHeightForWidth())
+        self.widgetExtraction.setSizePolicy(sizePolicy6)
         self.verticalLayout_7 = QVBoxLayout(self.widgetExtraction)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.verticalLayout_7.setContentsMargins(50, -1, 50, -1)
@@ -1277,8 +1365,11 @@ class Ui_MainWindow(object):
         self.pushButtonAnnulerInsc.clicked.connect(self.lineEditNomParent.clear)
         self.pushButtonAnnulerInsc.clicked.connect(self.lineEditPrenomJeune.clear)
         self.pushButtonAnnulerInsc.clicked.connect(self.lineEditNomJeune.clear)
+        self.pushButtonAnnulerInsc.clicked.connect(self.comboBoxEtabScol.clear)
+        self.pushButtonAnnulerInsc.clicked.connect(self.comboBoxRegSoc.clear)
+        self.pushButtonAnnulerInsc.clicked.connect(self.comboBoxCommune.clear)
 
-        self.stackedWidgetPages.setCurrentIndex(4)
+        self.stackedWidgetPages.setCurrentIndex(2)
         self.comboBoxEtabScol.setCurrentIndex(0)
         self.comboBoxModifEtabScol.setCurrentIndex(0)
 
@@ -1294,7 +1385,7 @@ class Ui_MainWindow(object):
         self.PB_Modif.setText(QCoreApplication.translate("MainWindow", u"Modification", None))
         self.PB_Totaux.setText(QCoreApplication.translate("MainWindow", u"Totaux", None))
         self.PB_Extraction.setText(QCoreApplication.translate("MainWindow", u"Extraction", None))
-        self.label_12.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">POINTAGE</span></p></body></html>", None))
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:14pt; font-weight:700;\">POINTAGE</span></p></body></html>", None))
         self.labelEntreNom.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">Entre ton nom pour te pointer:</span></p></body></html>", None))
         self.comboBoxEntreePointage.setCurrentText("")
         self.pushButtonValiderPointage.setText(QCoreApplication.translate("MainWindow", u"Valider", None))

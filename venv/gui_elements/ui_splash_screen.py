@@ -1,17 +1,22 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'splash_screenEQHhSi.ui'
+## Form generated from reading UI file 'splash_screengHdBrE.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.5
+## Created by: Qt User Interface Compiler version 6.3.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import *  # type: ignore
-from PySide2.QtGui import *  # type: ignore
-from PySide2.QtWidgets import *  # type: ignore
-
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QMainWindow,
+    QProgressBar, QSizePolicy, QVBoxLayout, QWidget)
 
 class Ui_SplashScreen(object):
     def setupUi(self, SplashScreen):
@@ -48,10 +53,9 @@ class Ui_SplashScreen(object):
         self.label_title.setObjectName(u"label_title")
         self.label_title.setGeometry(QRect(0, 70, 661, 81))
         font = QFont()
-        font.setFamily(u"Noto Sans Arabic UI")
+        font.setFamilies([u"Noto Sans Arabic UI"])
         font.setPointSize(40)
         font.setBold(False)
-        font.setWeight(50)
         self.label_title.setFont(font)
         self.label_title.setStyleSheet(u"color: rgb(152, 192, 0);")
         self.label_title.setTextFormat(Qt.AutoText)
@@ -61,7 +65,7 @@ class Ui_SplashScreen(object):
         self.label_description.setObjectName(u"label_description")
         self.label_description.setGeometry(QRect(0, 150, 661, 31))
         font1 = QFont()
-        font1.setFamily(u"Segoe UI")
+        font1.setFamilies([u"Segoe UI"])
         font1.setPointSize(14)
         self.label_description.setFont(font1)
         self.label_description.setStyleSheet(u"color: rgb(123, 157, 0);")
@@ -86,9 +90,9 @@ class Ui_SplashScreen(object):
         self.progressBar.setValue(24)
         self.label_description_2 = QLabel(self.dropShadowFrame)
         self.label_description_2.setObjectName(u"label_description_2")
-        self.label_description_2.setGeometry(QRect(0, 260, 661, 31))
+        self.label_description_2.setGeometry(QRect(0, 280, 661, 31))
         font2 = QFont()
-        font2.setFamily(u"Noto Sans")
+        font2.setFamilies([u"Noto Sans"])
         font2.setPointSize(10)
         self.label_description_2.setFont(font2)
         self.label_description_2.setStyleSheet(u"color: rgb(123, 157, 0);")
@@ -102,7 +106,7 @@ class Ui_SplashScreen(object):
         sizePolicy1.setHeightForWidth(self.label_credits.sizePolicy().hasHeightForWidth())
         self.label_credits.setSizePolicy(sizePolicy1)
         font3 = QFont()
-        font3.setFamily(u"Segoe UI")
+        font3.setFamilies([u"Segoe UI"])
         font3.setPointSize(10)
         self.label_credits.setFont(font3)
         self.label_credits.setStyleSheet(u"color: rgb(123, 157, 0);")

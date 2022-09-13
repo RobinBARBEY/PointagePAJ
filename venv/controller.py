@@ -2,19 +2,19 @@ import datetime
 
 from view import view
 import model
-from model import database
+from model import Database
 
 
 def valider_pointage(current_view, nom_prenom: str):
     # print(nom_prenom)
     exists = model.query(f"SELECT EXISTS(SELECT Id_Jeune FROM Jeune "
                          f"WHERE CONCAT(Nom_jeune, ' ', Prénom_jeune) = '{nom_prenom}')", False)
-    print(database.pointages)
+    print(Database.pointages)
     print(nom_prenom)
-    if exists[0][0] == 1 and nom_prenom not in model.database.pointages:
+    if exists[0][0] == 1 and nom_prenom not in Database.pointages:
         enregistrement_pointage(nom_prenom)
     else:
-        database.error_msg = "Nom hors base de donnée ou déjà pointé aujourd'hui"
+        Database.error_msg = "Nom hors base de donnée ou déjà pointé aujourd'hui"
         view.show_error_popup()
     current_view.ui.comboBoxEntreePointage.setCurrentText("")
 
@@ -25,12 +25,12 @@ def enregistrement_pointage(nom_prenom):
                          f"WHERE CONCAT(Nom_jeune, ' ', Prénom_jeune) = '{nom_prenom}'", False)
 
     model.insert('Pointage', '(Id_Jeune, Animateur, PeriodeScolaire)',
-                 f"('{Id[0]}', '{database.animateur}', {database.periode_scolaire})")
+                 f"('{Id[0]}', '{Database.animateur}', {Database.periode_scolaire})")
     model.commit_to_database()
 
-    database.pointages.append(nom_prenom)
+    Database.pointages.append(nom_prenom)
 
-    database.error_msg = "Pointage validé"
+    Database.error_msg = "Pointage validé"
     view.show_error_popup(False)
 
 
@@ -74,7 +74,7 @@ def valider_inscription(current_view, infos: dict):
                  f" '{genre}', '{etab_scolaire}', '{regime_social}', '{num_parent}', '{id_commune}')")
     model.commit_to_database()
 
-    database.error_msg = "L'inscription est validée"
+    Database.error_msg = "L'inscription est validée"
     view.show_error_popup(False)
 
     valider_pointage(current_view, f"{nom_jeune} {prenom_jeune}")
@@ -109,20 +109,20 @@ def appliquer_modif(infos: dict):
                                              f"'{infos.get('Nom_jeune') + infos.get('Prénom_jeune')}'")
     date_as_tuple = infos.get('Date_de_naissance')
     date_naissance = datetime.date(date_as_tuple[0], date_as_tuple[1], date_as_tuple[2])
-    Id = additional_infos.get('Id_Jeune')
-    old_Num = additional_infos.get('Numéro_parent')
+    id_jeune = additional_infos.get('Id_Jeune')
+    old_num = additional_infos.get('Numéro_parent')
     new_num = int(infos.get('Numéro_parent'))
     # print(type(old_Num), type(new_num), "numbers", old_Num == new_num)
 
-    if not old_Num == new_num and parent_not_in_db(new_num):
+    if not old_num == new_num and parent_not_in_db(new_num):
         model.insert('Tuteur_Parent', '(Numéro_parent, Nom_parent, Prénom_parent)',
                      f"({new_num}, '{infos.get('Nom_parent')}', '{infos.get('Prénom_parent')}')")
         model.commit_to_database()
 
-        model.query(f"UPDATE Jeune SET Numéro_parent = {new_num} WHERE Id_Jeune = '{Id}'", False, False)
+        model.query(f"UPDATE Jeune SET Numéro_parent = {new_num} WHERE Id_Jeune = '{id_jeune}'", False, False)
         model.commit_to_database()
 
-        model.query(f"DELETE FROM Tuteur_Parent WHERE Numéro_parent = {old_Num}",
+        model.query(f"DELETE FROM Tuteur_Parent WHERE Numéro_parent = {old_num}",
                     False, False)
         model.commit_to_database()
 
@@ -130,7 +130,7 @@ def appliquer_modif(infos: dict):
                 f"Prénom_jeune = '{infos.get('Prénom_jeune')}', Date_de_naissance = '{date_naissance}',"
                 f"Genre = '{infos.get('Genre')}', Nom_Etablissement = '{infos.get('Nom_Etablissement')}', "
                 f"Régime_social = '{infos.get('Régime_social')}', Numéro_parent = {new_num}, "
-                f"Id_Ville = {infos.get('Id_Ville')} WHERE Id_Jeune = '{Id}'", False, False)
+                f"Id_Ville = {infos.get('Id_Ville')} WHERE Id_Jeune = '{id_jeune}'", False, False)
     model.commit_to_database()
 
 

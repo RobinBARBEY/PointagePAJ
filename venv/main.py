@@ -4,21 +4,22 @@ import sys
 from view import view
 import controller
 import model
-from model import database
+from model import Database
 
-from PySide2 import QtCore
-from PySide2.QtGui import QColor
-from PySide2.QtWidgets import *
+from PySide6 import QtCore
+from PySide6.QtGui import QColor
+from PySide6.QtWidgets import *
 
 import gui_elements
-# ==> MAIN WINDOW
+# MAIN WINDOW
 from gui_elements.ui_main import Ui_MainWindow
-# ==> SPLASH SCREEN
+# SPLASH SCREEN
 from gui_elements.ui_splash_screen import Ui_SplashScreen
+# LOGIN DIALOG
 from gui_elements.ui_login import Ui_Dialog
 
-# ==> GLOBALS
-counter = 0
+# GLOBALS
+COUNTER = 0
 NOM_LOGICIEL = "Pointage du PAJ des Unelles"
 VERSION = "Version 1.0.0"
 
@@ -86,14 +87,14 @@ def show_login() -> bool:
     qui = Ui_Dialog()
     qui.setupUi(dialog)
     dialog.setWindowTitle("Login")
-    qui.lineEditAnim.setText(database.animateur)
+    qui.lineEditAnim.setText(Database.animateur)
     dialog.show()
-    resp = dialog.exec_()
+    resp = dialog.exec()
 
-    database.animateur = qui.lineEditAnim.text()
-    database.periode_scolaire = qui.checkBoxPeriodeScol.isChecked()
-    database.pointages = model.liste_pointages_jour()
-    if database.password != qui.lineEditMdp.text():
+    Database.animateur = qui.lineEditAnim.text()
+    Database.periode_scolaire = qui.checkBoxPeriodeScol.isChecked()
+    Database.pointages = model.liste_pointages_jour()
+    if Database.password != qui.lineEditMdp.text():
         return False
     elif resp == QDialog.rejected:
         return False
@@ -107,7 +108,7 @@ class SplashScreen(QMainWindow):
         self.main = MainWindow()
         self.ui = Ui_SplashScreen()
         self.ui.setupUi(self)
-        database.animateur = ''
+        Database.animateur = ''
 
         # UI ==> INTERFACE CODES
         ########################################################################
@@ -143,28 +144,29 @@ class SplashScreen(QMainWindow):
     # ==> APP FUNCTIONS
     ########################################################################
     def progress(self):
-        global counter
+        global COUNTER
         logged = False
-        self.ui.progressBar.setValue(counter)
-        if counter > 100:
+        self.ui.progressBar.setValue(COUNTER)
+        if COUNTER > 10:
             self.timer.stop()
             tries = 0
             while not logged and tries < 3:
                 tries += 1
                 logged = show_login()
             if not logged:
-                error_dialog = QErrorMessage()
-                error_dialog.showMessage('Mauvais mot de passe à 3 reprises')
+                error_dialog = QMessageBox()
+                error_dialog.setText('Mauvais mot de passe à 3 reprises')
                 error_dialog.setWindowTitle("Mdp erroné")
-                error_dialog.exec_()
+                error_dialog.setIcon(QMessageBox.Critical)
+                error_dialog.exec()
                 self.close()
                 return
             self.main.show()
             self.close()
-        counter += 2
+        COUNTER += 1
 
 
 if __name__ == "__main__":
     app = QApplication()
     window = SplashScreen()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

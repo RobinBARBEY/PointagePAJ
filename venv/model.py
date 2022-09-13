@@ -7,7 +7,7 @@ load_dotenv()
 
 
 @dataclass
-class database:
+class Database:
     animateur: str
     periode_scolaire: bool
     error_msg: str
@@ -34,40 +34,40 @@ def liste_pointages_jour() -> list:
 
 
 def setup_database(anim: str, password: str):
-    database.animateur = anim
-    database.password = password
+    Database.animateur = anim
+    Database.password = password
 
 
 def commit_to_database():
     try:
-        database.db.commit()
+        Database.db.commit()
     except Exception as error:
-        database.error_msg = error
+        Database.error_msg = error
         view.show_error_popup()
 
 
 def query_one(str_query: str, as_dict=True):
-    with database.db.cursor(buffered=True, dictionary=as_dict) as cursor:
+    with Database.db.cursor(buffered=True, dictionary=as_dict) as cursor:
         cursor.execute(str_query)
         result = cursor.fetchone()
     return result
 
 
 def query(str_query: str, as_dict=True, fetch=True):
-    with database.db.cursor(buffered=True, dictionary=as_dict) as cursor:
+    with Database.db.cursor(buffered=True, dictionary=as_dict) as cursor:
         cursor.execute(str_query)
         if fetch:
             return cursor.fetchall()
 
 
 def insert(table: str, columns: str, values: str):
-    with database.db.cursor() as cursor:
+    with Database.db.cursor() as cursor:
         cursor.execute(f"INSERT INTO {table}{columns} VALUES {values}")
         commit_to_database()
 
 
 def create_tables():
-    with database.db.cursor() as cursor:
+    with Database.db.cursor() as cursor:
 
         cursor.execute("""create table if not exists Ville
 (
@@ -136,10 +136,10 @@ def infos_valides(infos: dict) -> bool:
         return False
     for key, value in infos.items():
         if not value:
-            database.error_msg = f"{key} vide, veuillez remplir ce champ"
+            Database.error_msg = f"{key} vide, veuillez remplir ce champ"
             return False
     if 9 > len(infos.get('Numéro_parent')) < 10:
-        database.error_msg = "Numéro de téléphone invalide"
+        Database.error_msg = "Numéro de téléphone invalide"
         return False
 
     return True
