@@ -1,23 +1,29 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'logincovTSK.ui'
+## Form generated from reading UI file 'loginQmHFfK.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.5
+## Created by: Qt User Interface Compiler version 6.3.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import *  # type: ignore
-from PySide2.QtGui import *  # type: ignore
-from PySide2.QtWidgets import *  # type: ignore
-
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QAbstractButton, QApplication, QCheckBox, QDialog,
+    QDialogButtonBox, QFormLayout, QLabel, QLineEdit,
+    QSizePolicy, QVBoxLayout, QWidget)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(404, 172)
+        Dialog.resize(404, 174)
         Dialog.setStyleSheet(u"/*Copyright (c) DevSec Studio. All rights reserved.\n"
 "\n"
 "MIT License\n"
@@ -46,7 +52,7 @@ class Ui_Dialog(object):
 "{\n"
 "		background-color: #005369;\n"
 "        color: rgb(152, 192, 0);\n"
-"\n"
+"		\n"
 "}\n"
 "\n"
 "\n"
@@ -95,8 +101,8 @@ class Ui_Dialog(object):
 "}\n"
 "\n"
 "\n"
-"/*-----"
-                        "QCheckBox-----*/\n"
+"/*---"
+                        "--QCheckBox-----*/\n"
 "QCheckBox::indicator\n"
 "{\n"
 "    color: #b1b1b1;\n"

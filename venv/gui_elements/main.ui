@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1145</width>
+    <height>766</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -41,38 +41,97 @@ QWidget
 {
 		background-color: #005369;
         color: rgb(152, 192, 0);
-		border-color: rgb(123, 157, 0);
+		border-radius: 16px;
 }
 
+QFrame
+{
+		background-color: #005369;
+        color: rgb(152, 192, 0);
+		border: 1px solid rgb(154, 192, 0);
+		border-color: rgb(123, 157, 0);
+		border-radius: 16px;
+		padding: 2px;
+}
 
 /*-----QLabel-----*/
 QLabel
 {
 	background-color: transparent;
 	color: #98c000;
-	font-size: 16px;
-
+	font-size: 18px;
+	border: 0px;
+	padding: 2px;
 }
 
 
 /*-----QPushButton-----*/
 QPushButton
 {
-	background-color: #007d58;
+	background-color: rgb(7, 66, 83);
 	color: rgb(152, 192, 0);
 	font-size: 16px;
 	font-weight: bold;
-	border: none;
-	border-radius: 3px;
-	padding: 5px;
+	border: 1px solid rgb(119, 149, 0);
+	border-radius: 8px;
+	padding: 7px;
 
 }
 
 
 QPushButton::pressed
 {
-	background-color:  rgb(46, 45, 50) ;
+	background-color: rgb(16, 163, 206) ;
+	border: 3px solid rgb(128, 156, 15);
+}
 
+/*-----QComboBox-----*/
+QComboBox
+{
+	background-color: rgb(215, 248, 255);
+	color: rgb(0, 0, 0);
+	font-size: 18px;
+	font-weight: bold;
+	border-radius: 10px;
+	padding: 6px;
+}
+
+QComboBox::drop-down{
+	width: 30px;
+	border: 0px;
+	padding-right: 0px;
+}
+
+QComboBox::down-arrow{
+	image: url(:/Icons/icons8-drop-down-50.png);
+	height: 20px;
+	width: 20px;
+}
+
+QComboBox:on{
+	 border: 1px solid rgb(152, 192, 0);
+}
+
+
+QComboBox QListView{
+	font: 14px;
+	border: 1px solid rgb(152, 192, 0);
+	padding: 5px;
+	background-color: rgb(7, 66, 83);
+	outline: 0px;
+}
+
+QComboBox QListView:item{
+	font-size: 14px;
+	padding-left: 10px;
+	background-color: rgb(0, 0, 0);
+}
+
+QComboBox QListView:item:hover{
+	background-color: rgb(7, 66, 83);
+	color: rgb(60, 181, 181);
+	border: 1px solid rgb(152, 192, 0);
+	font-size: 14px;
 }
 
 
@@ -81,7 +140,7 @@ QCheckBox
 {
 	background-color: transparent;
 	color: #fff;
-	font-size: 14px;
+	font-size: 18px;
 	font-weight: bold;
 	border: none;
 	border-radius: 5px;
@@ -136,25 +195,49 @@ QCheckBox::indicator:disabled
 /*-----QLineEdit-----*/
 QLineEdit
 {
-	background-color: #c2c7d5;
-	color: #000;
+	background-color: rgb(215, 248, 255);
+	color: rgb(0, 0, 0);
+	font-size: 18px;
 	font-weight: bold;
-	border: none;
-	border-radius: 2px;
-	padding: 3px;
+	border-radius: 10px;
+	padding: 6px;
 
+}
+
+/*-----QLineEdit-----*/
+QDateEdit
+{
+	background-color: rgb(215, 248, 255);
+	color: rgb(0, 0, 0);
+	font-size: 18px;
+	font-weight: bold;
+	border-radius: 10px;
+	padding: 6px;
+}
+
+QDateEdit::drop-down{
+	width: 30px;
+	border: 0px;
+	padding-right: 0px;
+}
+
+QDateEdit::down-arrow{
+	image: url(:/Icons/icons8-drop-down-50.png);
+	height: 20px;
+	width: 20px;
 }
 
 
 /*-----QListView-----*/
 QListView
 {
-	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(50, 61, 80, 255),stop:1 rgba(44, 49, 69, 255));
-	color: #fff;
+	background-color: rgb(7, 66, 83);
+	color: rgb(152, 192, 19)rgb(152, 192, 0);
 	font-size: 14px;
 	font-weight: bold;
 	border: 1px solid #191919;
-	show-decoration-selected: 0;
+	border-radius: 10px;
+
 
 }
 
@@ -162,10 +245,10 @@ QListView
 QListView::item
 {
 	color: #31cecb;
-	background-color: #454e5e;
-	border: none;
+	background-color:rgb(7, 66, 83);
+	border: 1px solid rgb(152, 192, 0);
 	padding: 5px;
-	border-radius: 0px;
+	border-radius: 10px;
 	padding-left : 10px;
 	height: 42px;
 
@@ -173,8 +256,7 @@ QListView::item
 
 QListView::item:selected
 {
-	color: #31cecb;
-	background-color: #454e5e;
+	background-color: rgb(7, 66, 83);
 
 }
 
@@ -447,6 +529,9 @@ QScrollBar::sub-page:vertical
    <layout class="QVBoxLayout" name="verticalLayout_16">
     <item>
      <widget class="QFrame" name="frameHeader">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -467,14 +552,14 @@ QScrollBar::sub-page:vertical
           <bool>false</bool>
          </property>
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>140</width>
            <height>0</height>
           </size>
          </property>
@@ -483,6 +568,13 @@ QScrollBar::sub-page:vertical
            <width>90</width>
            <height>16777215</height>
           </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 83, 105);
+color: rgb(152, 192, 0);
+border: 1px solid rgb(123, 157, 0);
+border-radius: 10px;
+padding: 5px;</string>
          </property>
          <property name="wrapping">
           <bool>false</bool>
@@ -544,6 +636,9 @@ QScrollBar::sub-page:vertical
            <width>16777215</width>
            <height>16777215</height>
           </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -648,6 +743,9 @@ QScrollBar::sub-page:vertical
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
@@ -655,7 +753,7 @@ QScrollBar::sub-page:vertical
           <enum>QFrame::Raised</enum>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="PagePointage">
           <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -674,7 +772,7 @@ QScrollBar::sub-page:vertical
               <item alignment="Qt::AlignHCenter">
                <widget class="QLabel" name="label_12">
                 <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;POINTAGE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;POINTAGE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
               </item>
@@ -873,6 +971,15 @@ QScrollBar::sub-page:vertical
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
+                <property name="wrapping">
+                 <bool>false</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::NoButtons</enum>
+                </property>
+                <property name="calendarPopup">
+                 <bool>false</bool>
+                </property>
                </widget>
               </item>
               <item row="4" column="0">
@@ -1017,6 +1124,9 @@ QScrollBar::sub-page:vertical
                 <property name="currentIndex">
                  <number>0</number>
                 </property>
+                <property name="maxVisibleItems">
+                 <number>8</number>
+                </property>
                 <property name="insertPolicy">
                  <enum>QComboBox::NoInsert</enum>
                 </property>
@@ -1126,19 +1236,6 @@ QScrollBar::sub-page:vertical
                  </property>
                 </item>
                </widget>
-              </item>
-              <item row="11" column="1">
-               <spacer name="verticalSpacer_3">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
-                </property>
-               </spacer>
               </item>
              </layout>
             </widget>
@@ -1311,7 +1408,11 @@ QScrollBar::sub-page:vertical
                <widget class="QLineEdit" name="lineEditModifPrenom"/>
               </item>
               <item row="3" column="1">
-               <widget class="QDateEdit" name="dateEditModifDateNaiss"/>
+               <widget class="QDateEdit" name="dateEditModifDateNaiss">
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::NoButtons</enum>
+                </property>
+               </widget>
               </item>
               <item row="5" column="0">
                <widget class="QLabel" name="labelModifRegSoc">
@@ -1584,6 +1685,9 @@ QScrollBar::sub-page:vertical
               </property>
               <item row="3" column="1">
                <widget class="QDateEdit" name="dateEditFin">
+                <property name="locale">
+                 <locale language="French" country="France"/>
+                </property>
                 <property name="calendarPopup">
                  <bool>true</bool>
                 </property>
@@ -1603,6 +1707,9 @@ QScrollBar::sub-page:vertical
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="locale">
+                 <locale language="French" country="France"/>
                 </property>
                 <property name="calendarPopup">
                  <bool>true</bool>
@@ -1892,7 +1999,9 @@ QScrollBar::sub-page:vertical
   <tabstop>comboBoxEntreePointage</tabstop>
   <tabstop>pushButtonValiderPointage</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="../../../../Pictures/Icons/icons.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>pushButtonAnnulerInsc</sender>
@@ -1901,12 +2010,12 @@ QScrollBar::sub-page:vertical
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>318</x>
-     <y>91</y>
+     <x>992</x>
+     <y>741</y>
     </hint>
     <hint type="destinationlabel">
-     <x>318</x>
-     <y>91</y>
+     <x>808</x>
+     <y>495</y>
     </hint>
    </hints>
   </connection>
@@ -1917,12 +2026,12 @@ QScrollBar::sub-page:vertical
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>318</x>
-     <y>91</y>
+     <x>992</x>
+     <y>741</y>
     </hint>
     <hint type="destinationlabel">
-     <x>318</x>
-     <y>91</y>
+     <x>808</x>
+     <y>451</y>
     </hint>
    </hints>
   </connection>
@@ -1933,12 +2042,12 @@ QScrollBar::sub-page:vertical
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>318</x>
-     <y>91</y>
+     <x>992</x>
+     <y>741</y>
     </hint>
     <hint type="destinationlabel">
-     <x>318</x>
-     <y>91</y>
+     <x>808</x>
+     <y>407</y>
     </hint>
    </hints>
   </connection>
@@ -1949,12 +2058,12 @@ QScrollBar::sub-page:vertical
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>318</x>
-     <y>91</y>
+     <x>992</x>
+     <y>741</y>
     </hint>
     <hint type="destinationlabel">
-     <x>318</x>
-     <y>91</y>
+     <x>808</x>
+     <y>275</y>
     </hint>
    </hints>
   </connection>
@@ -1965,12 +2074,60 @@ QScrollBar::sub-page:vertical
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>318</x>
-     <y>91</y>
+     <x>992</x>
+     <y>741</y>
     </hint>
     <hint type="destinationlabel">
-     <x>318</x>
-     <y>91</y>
+     <x>808</x>
+     <y>231</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonAnnulerInsc</sender>
+   <signal>clicked()</signal>
+   <receiver>comboBoxEtabScol</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>715</x>
+     <y>730</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>679</x>
+     <y>559</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonAnnulerInsc</sender>
+   <signal>clicked()</signal>
+   <receiver>comboBoxRegSoc</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>742</x>
+     <y>722</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>710</x>
+     <y>607</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonAnnulerInsc</sender>
+   <signal>clicked()</signal>
+   <receiver>comboBoxCommune</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>753</x>
+     <y>721</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>706</x>
+     <y>524</y>
     </hint>
    </hints>
   </connection>

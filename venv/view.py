@@ -5,9 +5,9 @@ import datetime
 import model
 import gui_elements
 from gui_elements.ui_main import Ui_MainWindow
-from PySide2 import QtCore
-from PySide2.QtGui import (QColor)
-from PySide2.QtWidgets import *
+from PySide6 import QtCore
+from PySide6.QtGui import (QColor)
+from PySide6.QtWidgets import *
 
 
 
@@ -96,8 +96,8 @@ class view:
         # regime_social = infos[8]
         self.ui.comboBoxModifRegSoc.setCurrentText(infos.get('Régime_social'))
 
-        num_parent = str(infos.get('Numéro_parent'))
-        self.ui.lineEditModifNumTuteur.setText(num_parent)
+        num_parent = infos.get('Numéro_parent')
+        self.ui.lineEditModifNumTuteur.setText(f"{num_parent:010}")
         infos_parent = model.query(f"SELECT Nom_parent, Prénom_parent FROM Tuteur_Parent "
                                    f"WHERE Numéro_parent = '{num_parent}'", False)
 
@@ -115,11 +115,11 @@ class view:
     def show_error_popup(critical=True):
         msg = QMessageBox()
         msg.setWindowTitle("Information")
-        msg.setText(model.database.error_msg)
+        msg.setText(model.Database.error_msg)
         if critical:
             msg.setWindowTitle("Erreur")
             msg.setIcon(QMessageBox.Critical)
-        x = msg.exec_()
+        x = msg.exec()
 
     def show_total(self, total):
         self.ui.textBrowserTotal.setText(f"Le total pour la periode est de: {total} jeunes pointés")
@@ -129,7 +129,7 @@ class view:
         fin = self.ui.dateEditFin.date().getDate()
         return debut, fin
 
-    def get_total_filtres(self):
+    def get_total_filtres(self) -> dict:
         lun = self.ui.checkBoxLundi.isChecked()
         mar = self.ui.checkBoxMardi.isChecked()
         mer = self.ui.checkBoxMercredi.isChecked()
@@ -137,4 +137,11 @@ class view:
         ven = self.ui.checkBoxVendredi.isChecked()
         sam = self.ui.checkBoxSamedi.isChecked()
         is_periode_scol = self.ui.checkBoxPeriodeVac.isChecked()
-        return lun, mar, mer, jeu, ven, sam, is_periode_scol
+        filtres = {'lundi': lun,
+                   'mardi': mar,
+                   'mercredi': mer,
+                   'jeudi': jeu,
+                   'vendredi': ven,
+                   'samedi': sam,
+                   'periode_scol': is_periode_scol}
+        return filtres
