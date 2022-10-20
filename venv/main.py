@@ -1,7 +1,7 @@
 import datetime
 import sys
 
-from view import view
+from view import View
 import controller
 import model
 from model import Database
@@ -9,6 +9,7 @@ from model import Database
 from PySide6 import QtCore
 from PySide6.QtGui import QColor
 from PySide6.QtWidgets import *
+from PySide6.QtUiTools import QUiLoader
 
 import gui_elements
 # MAIN WINDOW
@@ -37,7 +38,7 @@ class MainWindow(QMainWindow):
         self.ui.dateEditFin.setDate(datetime.date.today())
 
         # Creation de la vue pour modification des sorties sur l'UI
-        self.view = view(self.ui)
+        self.view = View(self.ui)
 
         self.ui.stackedWidgetPages.setCurrentWidget(self.ui.PagePointage)
 
@@ -145,7 +146,7 @@ class SplashScreen(QMainWindow):
     ########################################################################
     def progress(self):
         global COUNTER
-        logged = False
+        logged: bool = False
         self.ui.progressBar.setValue(COUNTER)
         if COUNTER > 10:
             self.timer.stop()

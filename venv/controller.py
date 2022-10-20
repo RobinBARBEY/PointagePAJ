@@ -1,6 +1,6 @@
 import datetime
 
-from view import view
+from view import View
 import model
 from model import Database
 
@@ -15,7 +15,7 @@ def valider_pointage(current_view, nom_prenom: str):
         enregistrement_pointage(nom_prenom)
     else:
         Database.error_msg = "Nom hors base de donnée ou déjà pointé aujourd'hui"
-        view.show_error_popup()
+        View.show_error_popup()
     current_view.ui.comboBoxEntreePointage.setCurrentText("")
 
 
@@ -31,7 +31,7 @@ def enregistrement_pointage(nom_prenom):
     Database.pointages.append(nom_prenom)
 
     Database.error_msg = "Pointage validé"
-    view.show_error_popup(False)
+    View.show_error_popup(False)
 
 
 def valider_inscription(current_view, infos: dict):
@@ -75,7 +75,7 @@ def valider_inscription(current_view, infos: dict):
     model.commit_to_database()
 
     Database.error_msg = "L'inscription est validée"
-    view.show_error_popup(False)
+    View.show_error_popup(False)
 
     valider_pointage(current_view, f"{nom_jeune} {prenom_jeune}")
 
@@ -88,7 +88,7 @@ def parent_not_in_db(num_id: int) -> bool:
     return is_in_DB[0][0] == 0
 
 
-def select_jeune_modif(current_view: view, nom_prenom: str):
+def select_jeune_modif(current_view: View, nom_prenom: str):
     # print(nom_prenom)
     exists = model.query_one(f"SELECT EXISTS(SELECT Id_Jeune FROM Jeune "
                              f"WHERE CONCAT(Nom_jeune, ' ', Prénom_jeune) = '{nom_prenom}')", False)
@@ -134,7 +134,7 @@ def appliquer_modif(infos: dict):
     model.commit_to_database()
 
 
-def calculTotal(current_view, dates, filtres):
+def calculTotal(current_view: View, dates, filtres):
     date_debut = datetime.date(*dates[0])
     date_fin = datetime.date(*dates[1])
     # print("Calcul du:", date_debut, "au:", date_fin)

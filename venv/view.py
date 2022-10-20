@@ -10,8 +10,7 @@ from PySide6.QtGui import (QColor)
 from PySide6.QtWidgets import *
 
 
-
-class view:
+class View:
 
     def __init__(self, ui):
         self.liste_jeunes: list[dict] = model.get_liste_jeunes()
@@ -45,7 +44,7 @@ class view:
 
         # print(infos)
         if not model.infos_valides(infos):
-            view.show_error_popup()
+            View.show_error_popup()
             return
         return infos
 
@@ -69,7 +68,7 @@ class view:
 
         # print(infos)
         if not model.infos_valides(infos):
-            view.show_error_popup()
+            View.show_error_popup()
             return
         return infos
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainlpTfVX.ui'
+## Form generated from reading UI file 'mainPyQDMA.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.3.1
 ##
@@ -21,6 +21,7 @@ from PySide6.QtWidgets import (QAbstractSpinBox, QApplication, QCheckBox, QCombo
     QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
     QStackedWidget, QTableView, QTextBrowser, QVBoxLayout,
     QWidget)
+import rc_icons
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -124,9 +125,31 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QComboBox:on{\n"
-"	 border: 1px solid rgb(0, 0, 0);\n"
+"	 border: 1px solid rgb(152, 192, 0);\n"
 "}\n"
 "\n"
+"\n"
+"QComboBox QListView{\n"
+"	font: 14px;\n"
+"	border: 1px solid rgb(152, 192, 0);\n"
+"	padding: 5px;\n"
+"	background-color: rgb(7, 66, 83);\n"
+"	outline: 0px;\n"
+"}\n"
+"\n"
+"QComboBox QListView:item{\n"
+"	font-size: 14px;\n"
+"	padding-left: 10px;\n"
+"	background-color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QComboBox QListView:item:hover{\n"
+"	background-color: rgb(7, 66, 83);\n"
+"	color: rgb(60, 181, 181);\n"
+"	border: 1px solid rg"
+                        "b(152, 192, 0);\n"
+"	font-size: 14px;\n"
+"}\n"
 "\n"
 "\n"
 "/*-----QCheckBox-----*/\n"
@@ -153,8 +176,7 @@ class Ui_MainWindow(object):
 "\n"
 "}\n"
 "\n"
-""
-                        "\n"
+"\n"
 "QCheckBox::indicator:checked\n"
 "{\n"
 "    image:url(\"./ressources/check.png\");\n"
@@ -180,7 +202,8 @@ class Ui_MainWindow(object):
 "\n"
 "QCheckBox::indicator:disabled\n"
 "{\n"
-"	background-color: #656565;\n"
+"	background-color: #65656"
+                        "5;\n"
 "	color: #656565;\n"
 "    border: 1px solid #656565;\n"
 "\n"
@@ -206,8 +229,7 @@ class Ui_MainWindow(object):
 "	color: rgb(0, 0, 0);\n"
 "	font-size: 18px;\n"
 "	font-weight: bold;\n"
-"	border-radiu"
-                        "s: 10px;\n"
+"	border-radius: 10px;\n"
 "	padding: 6px;\n"
 "}\n"
 "\n"
@@ -238,7 +260,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "\n"
-"QListView::item\n"
+"QListV"
+                        "iew::item\n"
 "{\n"
 "	color: #31cecb;\n"
 "	background-color:rgb(7, 66, 83);\n"
@@ -267,8 +290,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "\n"
-"QListVi"
-                        "ew::item:!selected:hover\n"
+"QListView::item:!selected:hover\n"
 "{\n"
 "	color: #bbbcba;\n"
 "	background-color: #454e5e;\n"
@@ -304,7 +326,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "\n"
-"QTreeView::item:selected \n"
+"QTr"
+                        "eeView::item:selected \n"
 "{\n"
 "	background-color: #0ab19a;\n"
 "	color: #fff;\n"
@@ -328,8 +351,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QTreeView::branch:open:has-children:!has-siblings,\n"
-"QTreeView::branch:open:has-children:has-"
-                        "siblings  \n"
+"QTreeView::branch:open:has-children:has-siblings  \n"
 "{\n"
 "	image: url(://tree-open.png);\n"
 "\n"
@@ -361,7 +383,8 @@ class Ui_MainWindow(object):
 "\n"
 "QTableView::item:hover \n"
 "{\n"
-"    background-color: #606060;\n"
+"  "
+                        "  background-color: #606060;\n"
 "    color: #f0f0f0;\n"
 "\n"
 "}\n"
@@ -392,8 +415,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "\n"
-"QHeaderView::section"
-                        "\n"
+"QHeaderView::section\n"
 "{\n"
 "	color: #fff;\n"
 "	border-top: 0px;\n"
@@ -425,7 +447,8 @@ class Ui_MainWindow(object):
 "\n"
 "QHeaderView::section:checked:disabled\n"
 "{\n"
-"    color: #656565;\n"
+"    color: #656"
+                        "565;\n"
 "    background-color: #525251;\n"
 "\n"
 "}\n"
@@ -454,8 +477,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "\n"
-"QHead"
-                        "erView::section::horizontal\n"
+"QHeaderView::section::horizontal\n"
 "{\n"
 "    border-left: 1px solid #353635;\n"
 "\n"
@@ -485,7 +507,8 @@ class Ui_MainWindow(object):
 "QScrollBar::add-line:horizontal, \n"
 "QScrollBar::sub-line:horizontal,\n"
 "QScrollBar::add-page:horizontal, \n"
-"QScrollBar::sub-page:horizontal \n"
+"Q"
+                        "ScrollBar::sub-page:horizontal \n"
 "{\n"
 "    width: 0px;\n"
 "    background-color: transparent;\n"
@@ -513,8 +536,7 @@ class Ui_MainWindow(object):
 "\n"
 "QScrollBar::add-line:vertical, \n"
 "QScrollBar::sub-line:vertical,\n"
-"QScrollBar::add-page"
-                        ":vertical, \n"
+"QScrollBar::add-page:vertical, \n"
 "QScrollBar::sub-page:vertical \n"
 "{\n"
 "    height: 0px;\n"
@@ -645,12 +667,7 @@ class Ui_MainWindow(object):
         sizePolicy3.setVerticalStretch(0)
         sizePolicy3.setHeightForWidth(self.stackedWidgetPages.sizePolicy().hasHeightForWidth())
         self.stackedWidgetPages.setSizePolicy(sizePolicy3)
-        self.stackedWidgetPages.setStyleSheet(u"QStackedWidget{\n"
-"		background-color: #005369;\n"
-"        color: rgb(152, 192, 0);\n"
-"		border: 1px solid rgb(154, 192, 0);\n"
-"		border-color: rgb(123, 157, 0);\n"
-"}")
+        self.stackedWidgetPages.setStyleSheet(u"")
         self.stackedWidgetPages.setFrameShape(QFrame.StyledPanel)
         self.stackedWidgetPages.setFrameShadow(QFrame.Raised)
         self.PagePointage = QWidget()
@@ -887,6 +904,7 @@ class Ui_MainWindow(object):
         sizePolicy5.setHeightForWidth(self.comboBoxEtabScol.sizePolicy().hasHeightForWidth())
         self.comboBoxEtabScol.setSizePolicy(sizePolicy5)
         self.comboBoxEtabScol.setEditable(True)
+        self.comboBoxEtabScol.setMaxVisibleItems(8)
         self.comboBoxEtabScol.setInsertPolicy(QComboBox.NoInsert)
 
         self.formLayout_2.setWidget(9, QFormLayout.FieldRole, self.comboBoxEtabScol)
@@ -906,10 +924,6 @@ class Ui_MainWindow(object):
         self.comboBoxRegSoc.setInsertPolicy(QComboBox.NoInsert)
 
         self.formLayout_2.setWidget(10, QFormLayout.FieldRole, self.comboBoxRegSoc)
-
-        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.formLayout_2.setItem(11, QFormLayout.FieldRole, self.verticalSpacer_3)
 
 
         self.verticalLayout.addWidget(self.frameInsc)
@@ -1369,7 +1383,7 @@ class Ui_MainWindow(object):
         self.pushButtonAnnulerInsc.clicked.connect(self.comboBoxRegSoc.clear)
         self.pushButtonAnnulerInsc.clicked.connect(self.comboBoxCommune.clear)
 
-        self.stackedWidgetPages.setCurrentIndex(2)
+        self.stackedWidgetPages.setCurrentIndex(1)
         self.comboBoxEtabScol.setCurrentIndex(0)
         self.comboBoxModifEtabScol.setCurrentIndex(0)
 

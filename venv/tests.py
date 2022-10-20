@@ -9,7 +9,7 @@ import inserts
 import totaux
 import date_functions
 import model
-from view import view
+from view import View
 from gui_elements import *
 
 import sys
@@ -17,6 +17,17 @@ import sys
 from PySide2 import QtCore
 from PySide2.QtGui import (QColor)
 from PySide2.QtWidgets import *
+from PySide6.QtUiTools import loadUiType
+
+generated_class, base_class = loadUiType("gui_elements/main.ui")
+# the values will be:
+#  (<class '__main__.Ui_ThemeWidgetForm'>, <class 'PySide6.QtWidgets.QWidget'>)
+
+widget = base_class()
+form = generated_class()
+form.setupUi(widget)
+# form.a_widget_member.a_method_of_member()
+widget.show()
 
 # import gui_elements
 # # ==> MAIN WINDOW
@@ -152,7 +163,7 @@ db.commit()
 # print(dates_extraite)
 # print(type(dates_extraite))
 
-print(model.get_liste_jeunes())
+# print(model.get_liste_jeunes())
 # test_view = view()
 # print(test_view.liste_jeunes)
 
