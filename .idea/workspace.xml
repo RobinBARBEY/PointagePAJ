@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e70c9c5-7e20-4627-8f8c-8032c5868770" name="Changes" comment="Refonte de l'UI&#10;Passage a PySide6&#10;Refactor database -&gt; Database (Selon les règles  PEP)&#10;exec_() -&gt; exec() (PySide6 conseille exec())">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/PCQ3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+    <list default="true" id="0e70c9c5-7e20-4627-8f8c-8032c5868770" name="Changes" comment="Ajout des fichiers pour les icons">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/gui_elements/splash_ressources.qrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/gui_elements/ui_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/gui_elements/ui_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/view.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,6 +133,8 @@
       <workItem from="1664052860330" duration="1402000" />
       <workItem from="1665234205368" duration="403000" />
       <workItem from="1665396912587" duration="463000" />
+      <workItem from="1666299803385" duration="446000" />
+      <workItem from="1671373315059" duration="2023000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1662386595386</created>
@@ -164,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663944187206</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Ajout des fichiers pour les icons">
+      <created>1666299904001</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666299904001</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,7 +184,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Refonte de l'UI&#10;Passage a PySide6&#10;Refactor database -&gt; Database (Selon les règles  PEP)&#10;exec_() -&gt; exec() (PySide6 conseille exec())" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refonte de l'UI&#10;Passage a PySide6&#10;Refactor database -&gt; Database (Selon les règles  PEP)&#10;exec_() -&gt; exec() (PySide6 conseille exec())" />
+    <MESSAGE value="Ajout des fichiers pour les icons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout des fichiers pour les icons" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -199,7 +200,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PointagePAJ$main__1_.coverage" NAME="main Coverage Results" MODIFIED="1662384927035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
-    <SUITE FILE_PATH="coverage/PointagePAJ$main.coverage" NAME="main Coverage Results" MODIFIED="1665397267855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
+    <SUITE FILE_PATH="coverage/PointagePAJ$main.coverage" NAME="main Coverage Results" MODIFIED="1671374201048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
     <SUITE FILE_PATH="coverage/PointagePAJ$tests.coverage" NAME="tests Coverage Results" MODIFIED="1663948004094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
   </component>
 </project>
