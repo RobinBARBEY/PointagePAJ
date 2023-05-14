@@ -40,9 +40,10 @@ class MainWindow(QMainWindow):
         # Creation de la vue pour modification des sorties sur l'UI
         self.view = View(self.ui)
 
+        # Les pages sont dans une pile de widgets, au depart on se place sur la page pointage
         self.ui.stackedWidgetPages.setCurrentWidget(self.ui.PagePointage)
 
-        # Stacked widget connection using Menu buttons
+        # Lorsque l'utilisateur clique sur un des boutons pour changer de page, le widget courant est changé
         self.ui.PB_Pointage.clicked.connect(lambda: self.ui.stackedWidgetPages.setCurrentWidget(self.ui.PagePointage))
         self.ui.PB_Inscription.clicked.connect(lambda: self.ui.stackedWidgetPages.setCurrentWidget(
             self.ui.PageInscription))
@@ -71,6 +72,13 @@ class MainWindow(QMainWindow):
         )
 
         def open_protected_page(page):
+            """
+            Les pages protegees ne sont ouvertes que si le mot de passe est entre, on affiche donc la page de login
+            avant de les afficher. Si le mdp est faux on reste sur la page actuelle
+
+            :param page: Nom de la page demandee
+            :return:
+            """
             if not show_login():
                 return
             match page:

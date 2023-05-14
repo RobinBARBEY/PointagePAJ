@@ -9,7 +9,7 @@ from PySide6 import QtCore
 from PySide6.QtGui import (QColor)
 from PySide6.QtWidgets import *
 
-
+"""Fonctions d'affichage et de recuperation des entrees de l'interface utilisateur"""
 class View:
 
     def __init__(self, ui):
@@ -30,6 +30,11 @@ class View:
         self.ui.comboBoxModifSelJeune.setCurrentText("")
 
     def get_champs_inscription(self) -> dict:
+        """
+        Outil pour mettre les infos entrees sur le jeune dans la page d'inscription dans un dictionnaire
+
+        :return: Un dictionnaire contenant les infos sur le jeune
+        """
         infos: dict = {'Nom_jeune': self.ui.lineEditNomJeune.text(),
                        'Prénom_jeune': self.ui.lineEditPrenomJeune.text(),
                        'Date_de_naissance': self.ui.dateEditNaissance.date().getDate(),
@@ -49,6 +54,11 @@ class View:
         return infos
 
     def get_champs_modification(self) -> dict:
+        """
+        Outil pour mettre les infos entrees sur le jeune dans la page de modif dans un dictionnaire
+
+        :return: Un dictionnaire contenant toutes les infos sur le jeune
+        """
         Id_ville = model.query_one(f"SELECT Id_Ville FROM Ville "
                                    f"WHERE Nom_de_la_ville = '{self.ui.comboBoxModifCom.currentText()}'", False)[0]
         # print(Id_ville)
@@ -73,7 +83,12 @@ class View:
         return infos
 
     def update_modif(self, infos: dict):
+        """
+        Outil pour remplir les cases de la page de modification des infos des jeunes
 
+        :param infos: Le dictionnaire contenant les infos sur le jeune
+        :return: Rempli les cases du formulaire
+        """
         if not infos:
             show_error_popup("Infos vide")
             return
@@ -112,6 +127,11 @@ class View:
 
     @staticmethod
     def show_error_popup(critical=True):
+        """
+        Methode d'affichage d'une fenetre d'erreur "pop_up"
+
+        :param critical: Si l'erreur est critique, un pop-up d'erreur critique sera affiche (vrai par defaut)
+        """
         msg = QMessageBox()
         msg.setWindowTitle("Information")
         msg.setText(model.Database.error_msg)
@@ -121,6 +141,11 @@ class View:
         x = msg.exec()
 
     def show_total(self, total):
+        """
+        Change le texte de textBrowserTotal
+
+        :param total: Le nombre a afficher
+        """
         self.ui.textBrowserTotal.setText(f"Le total pour la periode est de: {total} jeunes pointés")
 
     def get_total_dates(self):

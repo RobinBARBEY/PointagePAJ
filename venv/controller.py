@@ -4,6 +4,7 @@ from view import View
 import model
 from model import Database
 
+"""Fonctions qui controlent les flux de donnees, les traitements et verifications a effectuer"""
 
 def valider_pointage(current_view, nom_prenom: str):
     # print(nom_prenom)
