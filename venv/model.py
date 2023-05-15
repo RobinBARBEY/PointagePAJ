@@ -5,6 +5,8 @@ import os
 
 load_dotenv()
 
+"""Fonctions utilisees pour communiquer avec la base de donnes et l'initialiser"""
+
 
 @dataclass
 class Database:
@@ -14,6 +16,8 @@ class Database:
     pointages: list
     password: str = os.getenv("POINTAGE_PASSWD")
 
+    """connecteur vers la base de donnee, les mdp etc sont stockees dans 
+    des variables environnement pour ne pas les ecrires en clair dans le code"""
     db = mysql.connector.connect(
         host=os.getenv("POINTAGE_HOST"),
         user=os.getenv("POINTAGE_USER"),
@@ -23,6 +27,12 @@ class Database:
 
 
 def liste_pointages_jour() -> list:
+    """
+    Outil pour connaitre la liste des jeunes pointes aujourd'hui, utile pour verifier qu'un jeune ne se pointe
+    pas 2 fois
+
+    :return: Liste des jeunes pointes le jour courant
+    """
     pointes_jour_id = query("SELECT Id_Jeune FROM Pointage WHERE DATE(Date_Heure_pointage) = CURRENT_DATE", False)
 
     liste_pointages: list = []
@@ -34,11 +44,19 @@ def liste_pointages_jour() -> list:
 
 
 def setup_database(anim: str, password: str):
+    """
+
+    :param anim: Nom de l'animateur qui ouvre l'appli
+    :param password: mot de passe de la base de donnees
+    """
     Database.animateur = anim
     Database.password = password
 
 
 def commit_to_database():
+    """
+    Commit les requetes a la base de donnees, affichera un pop-up si le commit echoue, avec le message d'erreur
+    """
     try:
         Database.db.commit()
     except Exception as error:
@@ -47,28 +65,50 @@ def commit_to_database():
 
 
 def query_one(str_query: str, as_dict=True):
+    """
+    Outil pour faire une requete d'une seule donnee
+
+    :param str_query: La query a ecrire en SQL
+    :param as_dict: Les donnees seront recuperees sous forme de dictionnaire par defaut
+    :return: Le resultat de la requete dans un dictionnaire avec key = nom de la colonne et value = donnee
+    """
     with Database.db.cursor(buffered=True, dictionary=as_dict) as cursor:
         cursor.execute(str_query)
         result = cursor.fetchone()
     return result
 
 
-def query(str_query: str, as_dict=True, fetch=True):
+def query(str_query: str, as_dict: bool = True) -> object:
+    """
+    Outil pour faire une requete de plusieurs donnees
+
+    :param str_query: La query a ecrire en SQL
+    :param as_dict: Les donnees seront recuperees sous forme de dictionnaire par defaut (true)
+    :return: L'ensemble des donnes, dans une liste de tuples si as_dict est false
+    """
     with Database.db.cursor(buffered=True, dictionary=as_dict) as cursor:
         cursor.execute(str_query)
-        if fetch:
-            return cursor.fetchall()
+        return cursor.fetchall()
 
 
 def insert(table: str, columns: str, values: str):
+    """
+    Outil d'insertion dans une table
+
+    :param values : Donnees a inserer
+    :param columns : Nom de la colonne
+    :param table : Nom de la table
+    """
     with Database.db.cursor() as cursor:
         cursor.execute(f"INSERT INTO {table}{columns} VALUES {values}")
         commit_to_database()
 
 
 def create_tables():
+    """
+    Outil de creation des tables de la base de donnees
+    """
     with Database.db.cursor() as cursor:
-
         cursor.execute("""create table if not exists Ville
 (
     Id_Ville        int auto_increment
@@ -124,14 +164,27 @@ def create_tables():
 
 
 def get_liste_jeunes() -> dict:
+    """
+    Retourne la liste complete des noms de jeunes inscrits dans un dictionnaire
+    """
     return query("SELECT Nom_jeune, Prénom_jeune FROM Jeune", True)
 
 
 def get_liste_communes() -> list:
+    """
+
+    :return: La liste des villes dans la table Ville
+    """
     return query("SELECT Nom_de_la_ville FROM Ville")
 
 
 def infos_valides(infos: dict) -> bool:
+    """
+    Outil de validation des donnees pour enregistrer un jeune
+
+    :param infos: Les donnees a verifier, avec key = colonne et value = donnee
+    :return: Vrai si les infos ne contiennent pas de valeur interdite, s'il n'y a pas de champ vide etc
+    """
     if not infos:
         return False
     for key, value in infos.items():
